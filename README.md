@@ -1,0 +1,1 @@
+Cách chạy project là mở bằng chrome
