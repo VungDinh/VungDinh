@@ -11,27 +11,36 @@
 
     <h1 style="background-color: red;">SỞ THÍCH CỦA BẠN</h1>
     <form action="/action_page.php" id="form1">
-        <label style="color: blue;" for="fname">Họ và tên</label>
+
+        <label style="color: blue; min-width: 200px; max-width: 200px;" for="fname">Họ và tên</label>
         <input type="text" id="fname" name="your name"><br><br>
-        <label style="color: blue;" for="email">Email</label>
-        <input type="text" id="email" name="email"><br><br>
-        <label style="color: blue;" for="Hobby">Sở thích</label>
-    
-        <input type="checkbox" id="hobby1" name="hobby1" value="Thể thao">
-        <label for="hobby1"> Thể thao</label><br>
-        <input type="checkbox" id="hobby2" name="hobby2" value="Lướt Web">
-        <label for="hobby2"> Lướt Web</label><br>
-        <br>
-        <input type="checkbox" id="hobby3" name="hobby3" value="Du lịch">
-        <label for="hobby3"> Du lịch</label><br><br>
-        <input type="checkbox" id="hobby4" name="hobby4" value="Âm nhạc">
-        <label for="hobby4"> Âm nhạc</label><br><br>
-        <input type="checkbox" id="hobby5" name="hobby5" value="Chơi game">
-        <label for="hobby5"> Chơi game</label><br><br>
-        <input type="checkbox" id="hobby6" name="hobby6" value="Đọc sách">
-        <label for="hobby6"> Đọc sách</label><br><br>
-        <input type="checkbox" id="hobby7" name="hobby7" value="Điện ảnh">
-        <label for="hobby7"> Điện ảnh</label><br><br>
+        <label style="color: blue;min-width: 200px" for="email">Email</label>
+        <input style="margin-left: 30px;" type="text" id="email" name="email"><br><br>
+        
+        <div style="display: flex;"> 
+            <label style="color: blue;min-width: 100px;" for="Hobby">Sở thích</label>
+            <div>
+                <input type="checkbox" id="hobby1" name="hobby1" value="Thể thao">
+                <label for="hobby1"> Thể thao</label><br>
+                <input type="checkbox" id="hobby2" name="hobby2" value="Lướt Web">
+                <label for="hobby2"> Lướt Web</label><br>
+                <br>
+                <input type="checkbox" id="hobby3" name="hobby3" value="Du lịch">
+                <label for="hobby3"> Du lịch</label><br><br>
+            </div>
+            <div style="margin-left: 30px;">
+                <input type="checkbox" id="hobby4" name="hobby4" value="Âm nhạc">
+                <label for="hobby4"> Âm nhạc</label><br><br>
+                <input type="checkbox" id="hobby5" name="hobby5" value="Chơi game">
+                <label for="hobby5"> Chơi game</label><br><br>
+            </div> 
+            <div>
+                <input type="checkbox" id="hobby6" name="hobby6" value="Đọc sách">
+                <label for="hobby6"> Đọc sách</label><br><br>
+                <input type="checkbox" id="hobby7" name="hobby7" value="Điện ảnh">
+                <label for="hobby7"> Điện ảnh</label><br><br>
+            </div>         
+        </div>
         <input style="background-color: rgb(160, 154, 154);" type="submit form" value="Gửi thông tin">
         <input style="background-color: rgb(160, 157, 157);" type="Reset form" value="Nhập lại">
 
