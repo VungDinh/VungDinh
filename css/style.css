@@ -1,4 +1,4 @@
-table {
+/* table {
     width: 600px;
     border-collapse: collapse;
     border-color: red;
@@ -13,4 +13,16 @@ td{
 #table-header{
     background-color: yellow;
     text-align: center;
+}  */
+table{
+    width: 800px;
+    border-collapse: collapse;
+}
+tr{
+    height: 100px;
+}
+
+#table-header{
+    background-color: black;
+    text-align:center ;
 }

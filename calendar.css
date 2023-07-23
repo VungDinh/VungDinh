@@ -1,0 +1,12 @@
+table{
+    width: 800px;
+    border-collapse: collapse;
+    
+}
+tr{
+    height: 50px;
+}
+
+#table-header{
+    text-align:center ;
+}
