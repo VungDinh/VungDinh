@@ -1,10 +1,14 @@
 table{
     width: 800px;
     border-collapse: collapse;
-    
+    border: none;
 }
 tr{
     height: 50px;
+}
+
+td {
+    border-color: black;
 }
 
 #table-header{
