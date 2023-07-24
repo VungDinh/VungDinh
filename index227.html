@@ -4,29 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <script  src="index227.js"></script>
 </head>
 <body>
-    <!-- <script>
-        // let i = 10;
-        // let f = 20;
-
-
-        // document.write('i= ' + i)
-        // document.write ('<br/>')
-        // document.write('f= ' + f)
-    
-    </script> -->
     <table>
         <tr>
             <td>Amount</td>
             <td>From Currency</td>
             <td>To curency</td>
+            <td></td>
         </tr>
         <tr>
-            <td><input Type=""/td>
+            <td><input type="number" id="amount"></td>
+            <td>
+                <select name="" id="from">
+                    <option value="23000">VND</option>
+                    <option value="1">USD</option>
+                    <option value="0.8">EU</option>
+                    <option value="142">JPA</option>
+                </select>
+            </td>
+            <td>
+                <select name="" id="to">
+                    <option value="23000">VND</option>
+                    <option value="1">USD</option>
+                    <option value="0.8">EU</option>
+                    <option value="142">JPA</option>
+                </select>
+            </td>
+            <button onclick="convertMoney()">Convert</button>
         </tr>
     </table>
-    
+    <p id="result"></p>
 </body>
 </html>
