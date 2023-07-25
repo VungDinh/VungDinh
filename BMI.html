@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function tinhBMI() {
+        let weight = document.getElementById('weight').value;
+        let height = document.getElementById('height').value;
+        let bmi = weight / (height * height)
+        console.log("chi so bmi: ", bmi);
+        let ketqua = '';
+        if (bmi < 18)
+            ketqua = "Under weight";
+        else if (bmi < 25.0)
+            ketqua = "Normal";
+        else if (bmi < 30.0)
+            ketqua = "Over weight";
+        else
+            document.write("Obese");
+
+        alert(ketqua);
+        document.getElementById('ketqua').innerHTML = ketqua;
+        // return ketqua;
+    }
+
+</script>
+
+<body>
+
+
+    <table>
+        <tr>
+            <td>Weight</td>
+            <td>Height</td>
+            <td></td>
+        </tr>
+        <td><input type="number" id="weight"></td>
+        <td><input type="number" id="height"></td>
+        <td><button type="button" onclick="tinhBMI()" value="tinh BMI">tinh BMI</button></td>
+        <td><span id="ketqua"></span></td>
+
+    </table>
+</body>
+
+</html>
