@@ -26,13 +26,13 @@
 //     noButton.style.top = randomY + "px";
 // });
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    // Đảm bảo rằng button đã được tải vào DOM trước khi thêm sự kiện click
-    var button = document.getElementById("abc");
-    button.addEventListener("mouseover", function() {
-        var randomX = Math.floor(Math.random() * window.innerWidth);
-        var randomY = Math.floor(Math.random() * window.innerHeight);
-        noButton.style.left = randomX + "px";
-        noButton.style.top = randomY + "px";
-    });
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+//     // Đảm bảo rằng button đã được tải vào DOM trước khi thêm sự kiện click
+//     var button = document.getElementById("abc");
+//     button.addEventListener("mouseover", function() {
+//         var randomX = Math.floor(Math.random() * window.innerWidth);
+//         var randomY = Math.floor(Math.random() * window.innerHeight);
+//         noButton.style.left = randomX + "px";
+//         noButton.style.top = randomY + "px";
+//     });
+// });

@@ -3,18 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="doYouLoveMe.js"></script>
+    <title>Title</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        #btn-no {
+            position: absolute;
+
+        }
+    </style>
 </head>
 
 <body>
-
-    
-        <p>Do you love me?</p>
-        <button type="Yes" id="yes" onclick="myButton()">Yes</button>
-        <button type="No" id="abc" >No</button>
+    <div class="container">
+        <h2>Do you love me?</h2>
+        <button>YES</button>
+        <button style ="" onmouseover="hoverBtn()" id="btn-no">NO</button>
+    </div>
+    <script>
         
+        function hoverBtn() {
+            let btnNo = document.getElementById('btn-no');
+            btnNo.style.top = getRandomInt(50, 600) + "px";
+            btnNo.style.left = getRandomInt(50, 500) + "px";
+        }
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+    </script>
 </body>
 
 </html>
