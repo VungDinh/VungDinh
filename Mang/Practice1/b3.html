@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng. -->
+
+<body>
+    <Script>
+        // Khởi tạo mảng số nguyên
+        let numbers = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+        // Tìm giá trị lớn nhất trong mảng
+        let max_value = numbers[0];
+        for (let i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max_value) {
+                max_value = numbers[i];
+            }
+        }
+
+        // Tính giá trị trung bình của các phần tử trong mảng
+        let sum = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        let average = sum / numbers.length;
+
+        // Hiển thị kết quả
+        document.write("Giá trị lớn nhất trong mảng là:", max_value);
+        
+        document.write("Giá trị trung bình của các phần tử trong mảng là:", average);
+    </Script>
+</body>
+
+</html>

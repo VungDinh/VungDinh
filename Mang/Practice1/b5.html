@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- đếm số nguyên âm trong một chuỗi -->
+
+<body>
+    <script>
+        function demSonguyenam(str) {
+            let count = 0;
+            const arr = str.split(",");
+            for (let i = 0; i < arr.length; i++) {
+                if (parseInt(arr[i]) < 0) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // Sử dụng hàm để đếm số lượng số nguyên âm trong chuỗi
+        const str = "1,2,-3,-5,8,-10,2,-30";
+        const numOfNegatives = demSonguyenam(str);
+        document.write(`Số lượng số nguyên âm trong chuỗi "${str}" là: ${numOfNegatives}`);
+//         function countPositiveNumbers(str) {
+//   let count = 0;
+//   const arr = str.split(",");
+//   for (let i = 0; i < arr.length; i++) {
+//     if (parseInt(arr[i]) > 0) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// // Sử dụng hàm để đếm số lượng số nguyên dương trong chuỗi
+// const str = "1,2,-3,-5,8,-10";
+// const numOfPositives = countPositiveNumbers(str);
+// console.log(`Số lượng số nguyên dương trong chuỗi "${str}" là: ${numOfPositives}`);
+    </script>
+
+</body>
+
+</html>
