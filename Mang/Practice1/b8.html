@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm/tăng dần và hiển thị ra mảng đã được sắp xếp. -->
+<p id="demo1"></p>
+<p id="demo2"></p>
+<body>
+    <script>
+
+        var numbers = [1, 5, 33, 15, 8, 10, 2, 30];
+        document.getElementById("demo1").innerHTML = numbers;
+        numbers.sort(function (a, b) { return b - a });
+        document.getElementById("demo2").innerHTML = numbers;
+        numbers.sort(function (a, b) { return a - b });
+
+        document.getElementById("demo2").innerHTML = numbers;
+
+
+    </script>
+</body>
+
+</html>
