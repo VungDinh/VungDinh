@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hiển thị Dòng chữ cố định</title>
+    <style>
+        /* Thiết lập kiểu cho dòng chữ cố định */
+        #fixed-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="fixed-text">Dòng chữ cố định</div>
+
+    <input type="text" id="input-box" >
+
+    <script>
+        const fixedText = "";
+        let currentIndex = 0;
+
+        const outputInput = document.getElementById("input-box");
+        outputInput.maxLength = fixedText.length
+        document.addEventListener("keydown", function(event) {
+            if(event.keyCode != 8){
+                const keyPressed = event.key;
+                const currentChar = fixedText[currentIndex];
+                console.log(keyPressed , currentChar)
+                    currentIndex++;
+                    outputInput.value = fixedText.substring(0, currentIndex);
+            }
+            if(currentIndex >=  fixedText.length+1){
+                outputInput.value  ='';
+                currentIndex = 0
+            }
+        });
+    </script>
+</body>
+
+</html>
