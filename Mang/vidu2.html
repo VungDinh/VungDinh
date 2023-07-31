@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let numbers = [ 2,3,1,4,6,3,4,3,8];
+        function count(numbers, x){
+    let count = 0;
+    for(let i=0;i<numbers.length;i++){
+      if(numbers[i]==x) //Tìm thấy phần tử giống x trong mảng thì cộng biến đếm
+        count ++;
+    }
+    document.write( "Phan tu " +  x  + " xuat hien " + count +  " lan");
+}
+count(numbers, 3);
+    </script>
+
+</body>
+
+</html>

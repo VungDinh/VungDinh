@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="string">Please input words:</label>
+    <input id="fruits_input" type="text"  name="">
+    <button onclick="transcript()">Translate</button>
+    <p id="result"></p>
+
+    <script>
+    var fruits = new Map([
+        ['banana', 'chuối'],
+        ['apple', 'táo'],
+        
+    ]);
+    function transcript(){
+        let giatri = document.getElementById('fruits_input').value;
+        let kq = fruits.get(giatri);
+        if(kq == undefined){
+            document.getElementById('result').innerHTML = 'Không tim thấy :)';
+        }else{
+            document.getElementById('result').innerHTML = kq;
+        }
+    }
+
+    </script>
+</body>
+</html>
