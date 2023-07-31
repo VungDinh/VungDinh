@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử. Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10. -->
+<body>
+    <script>
+        // Khởi tạo mảng số nguyên
+        let numbers = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+        // Tính số lượng phần tử lớn hơn hoặc bằng 10
+        let count = 0;
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] >= 10) {
+                count++;
+            }
+        }
+
+        // Hiển thị kết quả
+        document.write("Số lượng số nguyên lớn hơn hoặc bằng 10:", count);
+    </script>
+</body>
+
+</html>
