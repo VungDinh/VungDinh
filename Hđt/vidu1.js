@@ -32,9 +32,9 @@ class Circle{
         return Math.PI * this.radius * this.radius;
     }
 }
-let Circle = new Circle(2)
-let area = Circle.getArea();
-let dia = Circle.getDiameter();
+let circle = new Circle(2);
+let area = circle.getArea();
+let dia = circle.getDiameter();
 console.log("Chu vi hình tròn là : " + dia);
 console.log("Diện tích hình tròn là : " + area);
 /*
@@ -42,3 +42,4 @@ _tính trừu tượng: loại bỏ đặc điểm, hành vi rieneg, giữ lại
 -tính kế thừa:
 -tính bao gói
 -tính đa hình: cùng 1 hđ nhwung có kết quả khác nhau, ở các đối tượng khác nhau
+*/
