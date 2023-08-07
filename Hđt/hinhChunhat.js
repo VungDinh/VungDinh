@@ -2,7 +2,7 @@ class Rectangle{
     with;
     height;
 
-constructor(inputWith,inputHeight){
+constructor(inputWidth,inputHeight){
 this.width = inputWidth;
 this.height = inputHeight;
 }
