@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Di chuyển hình tròn trên Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // Lấy đối tượng canvas và context
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Khởi tạo vị trí ban đầu
+        var x = 40; // Tọa độ x ban đầu
+        var y = 40; // Tọa độ y ban đầu
+        var radius = 50; // Bán kính của hình tròn
+
+        // Vẽ hình tròn ban đầu
+        drawCircle();
+
+        // Hàm vẽ hình tròn
+        function drawCircle() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Xóa toàn bộ canvas
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = "pink";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Hàm di chuyển hình tròn
+        function moveCircle() {
+            // Cập nhật vị trí mới
+            x += 1; // Tăng tọa độ x để di chuyển sang phải
+            y += 1; // Tăng tọa độ y để di chuyển xuống dưới
+
+            drawCircle(); // Vẽ hình tròn mới tại vị trí mới
+
+            requestAnimationFrame(moveCircle); // Tiếp tục di chuyển hình tròn
+        }
+
+        // Gọi hàm di chuyển hình tròn để bắt đầu
+        moveCircle();
+    </script>
+</body>
+
+</html>

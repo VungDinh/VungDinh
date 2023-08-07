@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vẽ hình chữ nhật trên Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        // Lấy đối tượng canvas và context
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Vẽ hình chữ nhật
+        ctx.fillStyle = "red"; // Màu nền của hình chữ nhật
+        ctx.fillRect(50, 50, 200, 100); // Vẽ hình chữ nhật
+
+        // Vẽ đường viền cho hình chữ nhật
+        ctx.strokeStyle = "blue"; // Màu đường viền
+        ctx.lineWidth = 2; // Độ dày của đường viền
+        ctx.strokeRect(50, 50, 200, 100); // Vẽ đường viền cho hình chữ nhật
+    </script>
+</body>
+
+</html>

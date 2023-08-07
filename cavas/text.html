@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vẽ văn bản trên Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        // Lấy đối tượng canvas và context
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Vẽ văn bản
+        var text = "Have a nice day, Bae!";
+        var x = 50; // Tọa độ x của văn bản
+        var y = 100; // Tọa độ y của văn bản
+
+        ctx.font = "24px Arial"; // Font và kích thước của văn bản
+        ctx.fillStyle = "red"; // Màu của văn bản
+        ctx.fillText(text, x, y); // Vẽ văn bản
+
+        // Vẽ văn bản với đường viền
+        ctx.lineWidth = 1; // Độ dày của đường viền
+        ctx.strokeStyle = "red"; // Màu của đường viền
+        ctx.strokeText(text, x, y); // Vẽ văn bản với đường viền
+    </script>
+</body>
+
+</html>
