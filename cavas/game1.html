@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trò chơi Hứng trái Ác quỷ</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            background-image: url('../images/village.png');
+            background-size: cover;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <script>
+        // Lấy tham chiếu đến canvas và ngữ cảnh vẽ 2D
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Kích thước canvas
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        // Vị trí giỏ
+        let basketX = canvasWidth / 2;
+        const basketWidth = 50;
+        const basketHeight = 50;
+
+        // Tốc độ di chuyển của giỏ
+        const basketSpeed = 5;
+
+        // Tạo một mảng để lưu trữ thông tin về trứng
+        let eggs = [];
+
+        // Điểm số
+        let score = 0;
+        //Thời gian
+        let timeLeft = 3000;
+        let timerInterval;
+
+        // Tạo một hàm để vẽ giỏ
+        function drawBasket() {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(basketX, canvasHeight - basketHeight, basketWidth, basketHeight);
+        }
+
+        // Tạo một hàm để vẽ trứng
+        function drawEggs() {
+            ctx.fillStyle = "yellow";
+            eggs.forEach(function (egg) {
+                ctx.beginPath();
+                ctx.arc(egg.x, egg.y, egg.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        // Tạo một hàm để cập nhật vị trí của giỏ dựa trên phím mũi tên
+        function updateBasket() {
+            if (keys.ArrowLeft && basketX > 0) {
+                basketX -= basketSpeed;
+            } else if (keys.ArrowRight && basketX < canvasWidth - basketWidth) {
+                basketX += basketSpeed;
+            }
+        }
+
+        // Tạo một hàm để tạo trứng mới
+        function createEgg() {
+            const radius = 10;
+            const x = Math.random() * (canvasWidth - 2 * radius) + radius;
+            const y = 0;
+            eggs.push({ x, y, radius });
+        }
+
+        // Tạo một hàm để cập nhật vị trí của trứng và kiểm tra va chạm với giỏ
+        function updateEggs() {
+            eggs.forEach(function (egg) {
+                egg.y += 2;
+
+                // Kiểm tra va chạm với giỏ
+                if (
+                    egg.y + egg.radius > canvasHeight - basketHeight &&
+                    egg.x + egg.radius > basketX &&
+                    egg.x - egg.radius < basketX + basketWidth
+                ) {
+                    eggs.splice(eggs.indexOf(egg), 1);
+                    score += 10; // Tăng điểm số khi hứng trứng thành công
+                }
+            });
+        }
+
+        // Tạo một hàm để vẽ điểm số
+        function drawScore() {
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+        }
+        // Hàm mô tả time:
+        function drawTimer() {
+            ctx.fillStyle = "Blue";
+            ctx.font = "20px Arial";
+            ctx.fillText("Time Left: " + timeLeft, canvasWidth - 120, 30);
+
+        }
+        // Function to update the timer
+        function updateTimer() {
+            timeLeft--;
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                alert("Game Over! Your score is: " + score);
+                location.reload(); // Reload the page to restart the game
+            }
+        }
+        // Hàm chính để vẽ và cập nhật trạng thái của trò chơi
+        function gameLoop() {
+            // Xóa canvas
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Vẽ giỏ và trứng
+            drawBasket();
+            drawEggs();
+
+            // Vẽ điểm số và Time
+            drawScore();
+            drawTimer();
+
+            // Cập nhật vị trí của giỏ
+            updateBasket();
+
+            // Tạo trứng mới mỗi 1 giây
+            if (Math.random() < 0.02) {
+                createEgg();
+            }
+
+            // Cập nhật vị trí của trứng và kiểm tra va chạm
+            updateEggs();
+            // Update the timer
+            updateTimer();
+
+            // Tiếp tục vòng lặp trò chơi
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Đặt sự kiện lắng nghe phím nhấn đểđiều khiển giỏ
+        const keys = {};
+        document.addEventListener("keydown", function (event) {
+            keys[event.key] = true;
+        });
+        document.addEventListener("keyup", function (event) {
+            keys[event.key] = false;
+        });
+
+        // Bắt đầu trò chơi
+        gameLoop();
+    </script>
+</body>
+
+</html>
