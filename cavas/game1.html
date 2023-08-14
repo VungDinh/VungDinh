@@ -15,21 +15,27 @@
 </head>
 
 <body>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
     <script>
         // Lấy tham chiếu đến canvas và ngữ cảnh vẽ 2D
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
+        const chuongngaivat = document.getElementById("chuongngaivat");
 
         // Kích thước canvas
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
+        // Basket image
+        const basketImage = new Image();
+        basketImage.src = "../images/sb_rmbg_luffylv1.png"; // Đường dẫn đến hình ảnh giỏ hứng mới
+        //Eggs image
+        const eggImage = new Image();
+        eggImage.src = "../images/sb_rmbg_gomugomu.png";
 
         // Vị trí giỏ
         let basketX = canvasWidth / 2;
-        const basketWidth = 50;
-        const basketHeight = 50;
+        const basketWidth = 80;
+        const basketHeight = 80;
 
         // Tốc độ di chuyển của giỏ
         const basketSpeed = 5;
@@ -45,18 +51,22 @@
 
         // Tạo một hàm để vẽ giỏ
         function drawBasket() {
-            ctx.fillStyle = "blue";
-            ctx.fillRect(basketX, canvasHeight - basketHeight, basketWidth, basketHeight);
+            ctx.drawImage(basketImage, basketX, canvasHeight - basketHeight, basketWidth, basketHeight);
         }
 
         // Tạo một hàm để vẽ trứng
         function drawEggs() {
-            ctx.fillStyle = "yellow";
+            // ctx.fillStyle = "yellow";
             eggs.forEach(function (egg) {
                 ctx.beginPath();
-                ctx.arc(egg.x, egg.y, egg.radius, 0, Math.PI * 2);
+                // ctx.arc(egg.x, egg.y, egg.radius, 0, Math.PI * 2);
+                drawEgg(egg.x, egg.y);
                 ctx.fill();
             });
+        }
+        // Function to draw an egg
+        function drawEgg(x, y) {
+            ctx.drawImage(eggImage, x, y, 50, 40);
         }
 
         // Tạo một hàm để cập nhật vị trí của giỏ dựa trên phím mũi tên
