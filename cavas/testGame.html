@@ -16,7 +16,6 @@
 
 <body>
     <canvas id="gameCanvas" width="600" height="600"></canvas>
-
     <script>
         // Lấy tham chiếu đến canvas và ngữ cảnh vẽ 2D
         const canvas = document.getElementById("gameCanvas");
@@ -26,6 +25,10 @@
         // canvas size
         const canvasWidth = canvas.width;
         const canvasHeight = canvas.height;
+
+        const startImage = new Image();
+        startImage.src = "../images/start.png";
+
         // Basket image
         const basketImage = new Image();
         basketImage.src = "../images/sb_rmbg_luffylv1.png"; //Link to new basket
@@ -35,6 +38,8 @@
         //Boom image
         const boomImage = new Image();
         boomImage.src = "../images/sb_rmbg_boom.png";
+
+      
 
         // Basket position
         let basketX = canvasWidth / 2;
@@ -166,13 +171,17 @@
         }
         // Hàm chính để vẽ và cập nhật trạng thái của trò chơi
         function gameLoop() {
+            // ctx.drawImage(start, x, y, 40, 40);
 
+            
             // Kiểm tra điều kiện để hiển thị thông báo "Win"
             if (score >= 300 && !isGameOver) {
                 isWin = true;
+                
             }
             // Hiển thị thông báo tương ứng
             if (isWin) {
+                clicked = true;
                 ctx.fillStyle = "Red";
                 ctx.font = "bold 50px Arial";
                 ctx.fillText("Win!", canvas.width / 2, canvas.height / 2);
@@ -226,7 +235,31 @@
         });
 
         // Bắt đầu trò chơi
-        gameLoop();
+        let x = 160;
+        let y = 200;
+        let width = 300;
+        let height = basketHeight;
+        var clicked = true;
+
+        startImage.onload = function() {
+            ctx.drawImage(startImage, x, y, width, height);
+        };
+
+        canvas.addEventListener("click", function(event) {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+            // Kiểm tra xem điểm click có nằm trong vùng của đối tượng startImage hay không
+            if (clickX > x && clickX < x + width && clickY > y && clickY < y + height) {
+                // Xử lý sự kiện khi click vào đối tượng startImage
+                if(clicked){
+                    gameLoop();
+                    clicked = false
+                }
+            }
+        });
+        
     </script>
 </body>
 
