@@ -39,13 +39,11 @@
         const boomImage = new Image();
         boomImage.src = "../images/sb_rmbg_boom.png";
 
-      
-
         // Basket position
         let basketX = canvasWidth / 2;
         const basketWidth = 90;
         const basketHeight = 90;
-
+        let frozen = true; //Trạng thái đóng băng
         // Basket speed
         const basketSpeed = 5;
 
@@ -65,7 +63,15 @@
         function drawBasket() {
             ctx.drawImage(basketImage, basketX, canvasHeight - basketHeight, basketWidth, basketHeight);
         }
-
+        function boomCollision() {
+            console.log('dinh phai bom');
+            frozen = false;
+            // Sau 2 giây, thiết lập trạng thái bị đóng băng thành false
+            setTimeout(function () {
+                frozen = true;
+                console.log(frozen);
+            }, 1000);
+        }
         // Tạo hàm để vẽ devil fruit
         function drawEggs() {
             eggs.forEach(function (egg) {
@@ -140,6 +146,7 @@
                 ) {
                     booms.splice(booms.indexOf(boom), 1);
                     score -= 10; // Giảm điểm số khi hứng boom
+                    handleCollision();
                 }
             });
         }
@@ -173,11 +180,10 @@
         function gameLoop() {
             // ctx.drawImage(start, x, y, 40, 40);
 
-            
             // Kiểm tra điều kiện để hiển thị thông báo "Win"
             if (score >= 300 && !isGameOver) {
                 isWin = true;
-                
+
             }
             // Hiển thị thông báo tương ứng
             if (isWin) {
@@ -241,11 +247,11 @@
         let height = basketHeight;
         var clicked = true;
 
-        startImage.onload = function() {
+        startImage.onload = function () {
             ctx.drawImage(startImage, x, y, width, height);
         };
 
-        canvas.addEventListener("click", function(event) {
+        canvas.addEventListener("click", function (event) {
             const rect = canvas.getBoundingClientRect();
             const clickX = event.clientX - rect.left;
             const clickY = event.clientY - rect.top;
@@ -253,13 +259,13 @@
             // Kiểm tra xem điểm click có nằm trong vùng của đối tượng startImage hay không
             if (clickX > x && clickX < x + width && clickY > y && clickY < y + height) {
                 // Xử lý sự kiện khi click vào đối tượng startImage
-                if(clicked){
+                if (clicked) {
                     gameLoop();
                     clicked = false
                 }
             }
         });
-        
+
     </script>
 </body>
 
