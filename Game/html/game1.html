@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trò chơi Hứng trái Ác quỷ</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            background-image: url('../images/village.png');
+            background-size: cover;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <audio controls autoplay loop>
+
+        <source src="../Sound/music.mp3" type="audio/mp3">
+        >
+    </audio>
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+    <script>
+
+        let playing = true;
+        // Lấy tham chiếu đến canvas và ngữ cảnh vẽ 2D
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const chuongngaivat = document.getElementById("chuongngaivat");
+
+        // canvas size
+        const canvasWidth = canvas.width;
+        const canvasHeight = canvas.height;
+
+        const startImage = new Image();
+        startImage.src = "../images/start.png";
+
+        // Basket image
+        const basketImage = new Image();
+        basketImage.src = "../images/sb_rmbg_luffylv1.png"; //Link to new basket
+        //Devil fruit image
+        const eggImage = new Image();
+        eggImage.src = "../images/sb_rmbg_gomugomu.png";
+        //Boom image
+        const boomImage = new Image();
+        boomImage.src = "../images/sb_rmbg_boom.png";
+
+        // Basket position
+        let basketX = canvasWidth / 2;
+        const basketWidth = 90;
+        const basketHeight = 90;
+
+        // Basket speed
+        const basketSpeed = 5;
+
+        // Tạo mảng để lưu trữ thông tin về devil fruit
+        let eggs = [];
+        // Tạo mảng để lưu trữ thông tin về boom
+        let booms = [];
+        // Score
+        let score = 0;
+        let isGameOver = false;
+        let isWin = false;
+        //Thời gian
+        let timeLeft = 3000;
+        let timerInterval;
+
+        // Tạo hàm để vẽ basket
+        function drawBasket() {
+            ctx.drawImage(basketImage, basketX, canvasHeight - basketHeight, basketWidth, basketHeight);
+        }
+
+        // Tạo hàm để vẽ devil fruit
+        function drawEggs() {
+            eggs.forEach(function (egg) {
+                ctx.beginPath();
+                drawEgg(egg.x, egg.y);
+                ctx.fill();
+            });
+        }
+        // Tạo hàm để vẽ boom
+        function drawBooms() {
+            booms.forEach(function (boom) {
+                ctx.beginPath();
+                drawBoom(boom.x, boom.y);
+                ctx.fill();
+            });
+        }
+        // Hàm mô tả quả
+        function drawEgg(x, y) {
+            ctx.drawImage(eggImage, x, y, 40, 40);
+        }
+        // Hàm vẽ boom
+        function drawBoom(x, y) {
+            ctx.drawImage(boomImage, x, y, 40, 40);
+        }
+        // Tạo một hàm để cập nhật vị trí của giỏ dựa trên phím mũi tên
+        function updateBasket() {
+            if (keys.ArrowLeft && basketX > 0) {
+                basketX -= basketSpeed;
+            } else if (keys.ArrowRight && basketX < canvasWidth - basketWidth) {
+                basketX += basketSpeed;
+            }
+        }
+
+        // Tạo một hàm để tạo quả mới
+        function createEgg() {
+            const radius = 10;
+            const x = Math.random() * (canvasWidth - 2 * radius) + radius;
+            const y = 0;
+            eggs.push({ x, y, radius });
+        }
+        // Tạo một hàm để tạo boom mới
+        function createBoom() {
+            const radius = 10;
+            const x = Math.random() * (canvasWidth - 2 * radius) + radius;
+            const y = 0;
+            booms.push({ x, y, radius });
+        }
+        // Tạo hàm để cập nhật vị trí của quả,kiểm tra va chạm với giỏ
+        function updateEggs() {
+            eggs.forEach(function (egg) {
+                egg.y += 2;
+                // Kiểm tra va chạm với giỏ
+                if (
+                    egg.y + egg.radius > canvasHeight - basketHeight &&
+                    egg.x + egg.radius > basketX &&
+                    egg.x - egg.radius < basketX + basketWidth
+                ) {
+                    eggs.splice(eggs.indexOf(egg), 1);
+                    score += 10; // Tăng điểm số khi hứng quả thành công
+                }
+            });
+        }
+        // Tạo một hàm để cập nhật vị trí của boom và kiểm tra va chạm với giỏ
+        function updateBooms() {
+            booms.forEach(function (boom) {
+                boom.y += 2;
+                // Kiểm tra va chạm với giỏ
+                if (
+                    boom.y + boom.radius > canvasHeight - basketHeight &&
+                    boom.x + boom.radius > basketX &&
+                    boom.x - boom.radius < basketX + basketWidth
+                ) {
+                    booms.splice(booms.indexOf(boom), 1);
+                    score -= 10; // Giảm điểm số khi hứng boom
+                }
+            });
+        }
+        // Tạo một hàm để vẽ điểm số
+        function drawScore() {
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 10, 30);
+        }
+        // Hàm mô tả time:
+        function drawTimer() {
+            ctx.fillStyle = "Blue";
+            ctx.font = "20px Arial";
+            ctx.fillText("Time Left: " + timeLeft, canvasWidth - 150, 30);
+
+        }
+        // Function to update the timer
+        function updateTimer() {
+            timeLeft--;
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                alert("Time's up! Your score is: " + score);
+                location.reload(); // Reload the page to restart the game
+            }
+        }
+
+        function handleCollision() {
+            isGameOver = true;
+        }
+        // Hàm chính để vẽ và cập nhật trạng thái của trò chơi
+        function gameLoop() {
+            // ctx.drawImage(start, x, y, 40, 40);
+            if (playing == true) {
+                // Kiểm tra điều kiện để hiển thị thông báo "Win"
+                if (score == 300 && !isGameOver) {
+                    isWin = true;
+playing = false
+
+                }
+                // Hiển thị thông báo tương ứng
+                if (isWin) {
+                    clicked = true;
+                    ctx.fillStyle = "Red";
+                    ctx.font = "bold 50px Arial";
+                    ctx.fillText("Win!", canvas.width / 2, canvas.height / 2);
+                } else if (isGameOver) {
+                    ctx.fillStyle = "Red";
+                    ctx.font = "bold 50px Arial";
+                    ctx.fillText("You lost!", canvas.width / 2, canvas.height / 2);
+                } else {
+                    // Xóa canvas
+                    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                    // Vẽ giỏ và devil fruit
+                    drawBasket();
+                    drawEggs();
+                    drawBooms();
+
+                    // Vẽ điểm số và Time
+                    drawScore();
+                    drawTimer();
+
+                    // Cập nhật vị trí của giỏ
+                    updateBasket();
+
+                    // Tạo quả mới mỗi 1 giây
+                    if (Math.random() < 0.02) {
+                        createEgg();
+                    }
+                    // Tạo boom mới mỗi 1 giây
+                    if (Math.random() < 0.005) {
+                        createBoom();
+                    }
+                    // Cập nhật vị trí của devil fruit và kiểm tra va chạm
+                    updateEggs();
+                    updateBooms();
+                    // Update the timer
+                    updateTimer();
+                    // Tiếp tục vòng lặp trò chơi
+                    requestAnimationFrame(gameLoop);
+                }
+            }
+
+        }
+
+        // Đặt sự kiện lắng nghe phím nhấn để điều khiển giỏ
+        const keys = {};
+        document.addEventListener("keydown", function (event) {
+            keys[event.key] = true;
+        });
+        document.addEventListener("keyup", function (event) {
+            keys[event.key] = false;
+        });
+
+        // Bắt đầu trò chơi
+        let x = 160;
+        let y = 200;
+        let width = 300;
+        let height = basketHeight;
+        var clicked = true;
+
+        startImage.onload = function () {
+            ctx.drawImage(startImage, x, y, width, height);
+        };
+
+        canvas.addEventListener("click", function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+
+            // Kiểm tra xem điểm click có nằm trong vùng của đối tượng startImage hay không
+            if (clickX > x && clickX < x + width && clickY > y && clickY < y + height) {
+                // Xử lý sự kiện khi click vào đối tượng startImage
+                if (clicked) {
+                    gameLoop();
+                    clicked = false
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
