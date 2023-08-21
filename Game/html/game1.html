@@ -6,7 +6,7 @@
     <style>
         canvas {
             border: 1px solid black;
-            background-image: url('../images/village.png');
+            background-image: url('../images/onepiece.jpg');
             background-size: cover;
             display: block;
             margin: 0 auto;
@@ -27,7 +27,7 @@
         // Lấy tham chiếu đến canvas và ngữ cảnh vẽ 2D
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
-        const chuongngaivat = document.getElementById("chuongngaivat");
+        const onepiece = document.getElementById("onepiece");
 
         // canvas size
         const canvasWidth = canvas.width;
@@ -41,15 +41,15 @@
         basketImage.src = "../images/sb_rmbg_luffylv1.png"; //Link to new basket
         //Devil fruit image
         const eggImage = new Image();
-        eggImage.src = "../images/sb_rmbg_gomugomu.png";
+        eggImage.src = "../images/fire11.png";
         //Boom image
         const boomImage = new Image();
         boomImage.src = "../images/sb_rmbg_boom.png";
 
         // Basket position
         let basketX = canvasWidth / 2;
-        const basketWidth = 90;
-        const basketHeight = 90;
+        const basketWidth = 100;
+        const basketHeight = 100;
 
         // Basket speed
         const basketSpeed = 5;
@@ -150,7 +150,7 @@
         }
         // Tạo một hàm để vẽ điểm số
         function drawScore() {
-            ctx.fillStyle = "black";
+            ctx.fillStyle = "red";
             ctx.font = "20px Arial";
             ctx.fillText("Score: " + score, 10, 30);
         }
@@ -181,14 +181,14 @@
                 // Kiểm tra điều kiện để hiển thị thông báo "Win"
                 if (score == 300 && !isGameOver) {
                     isWin = true;
-playing = false
+                    playing = false
 
                 }
                 // Hiển thị thông báo tương ứng
                 if (isWin) {
                     clicked = true;
                     ctx.fillStyle = "Red";
-                    ctx.font = "bold 50px Arial";
+                    ctx.font = "bold 80px Arial";
                     ctx.fillText("Win!", canvas.width / 2, canvas.height / 2);
                 } else if (isGameOver) {
                     ctx.fillStyle = "Red";
@@ -264,7 +264,8 @@ playing = false
                 }
             }
         });
-
+        
+    </script>
     </script>
 </body>
 
