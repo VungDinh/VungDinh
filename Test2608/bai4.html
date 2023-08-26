@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vẽ hình chữ nhật</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="300" height="200"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = '#000000'; // Màu nền của hình chữ nhật
+        ctx.fillRect(10, 10, 200, 100); // Vẽ hình chữ nhật
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Cho 1 mảng điểm thi, viết chương trình tìm phần tử lớn thứ 3 trong mảng.
+        function findThirdHighestScore(scores) {
+            if (scores.length < 3) {
+                return "Không thể tìm điểm cao thứ 3";
+            }
+            let highest = -Infinity;
+            let secondHighest = -Infinity;
+            let thirdHighest = -Infinity;
+            for (let i = 0; i < scores.length; i++) {
+                if (scores[i] > highest) {
+                    thirdHighest = secondHighest;
+                    secondHighest = highest;
+                    highest = scores[i];
+                }
+                else if (scores[i] > secondHighest && scores[i] < highest) {
+                    thirdHighest = secondHighest;
+                    secondHighest = scores[i];
+                }
+                else if (scores[i] > thirdHighest && scores[i] < secondHighest) {
+                    thirdHighest = scores[i];
+                }
+            }
+            if (thirdHighest === -Infinity) {
+                return "không có điểm cao thứ 3";
+            }
+            else {
+                return thirdHighest;
+            }
+        }
+
+        // Ví dụ
+        let scores = [10, 25, 5, 40, 50];
+        let thirdHighest = findThirdHighestScore(scores);
+        document.write("Điểm cao thứ 3:", thirdHighest);
+    </script>
+
+</body>
+
+</html>
