@@ -7,7 +7,17 @@
 </head>
 <body>
     <script>
-        function checkSubstring(str1)
+        function checkSubstring(str1,str2){
+            if (str1.length > str2.length){
+                return false;
+            }
+            for (let i = 0; i <= str2.length - str1.length;i++){
+                let j;
+                for (j = 0; j < str1.length; j++){
+                    if (str2[i + j]) !==
+                }
+            }
+        }
         let str1 = "abc";
         let str2 = "abcdef";
         console.log(checkSubstring(str1, str2))
