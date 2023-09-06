@@ -19,6 +19,7 @@ $products = readFileToData("./data/products.json");
 </head>
 
 <body>
+
     <body class="products-background">
         <div class="container">
             <div class="table-wrapper">
@@ -28,8 +29,15 @@ $products = readFileToData("./data/products.json");
                             <h2>PRODUCTS LIST</h2>
                         </div>
                         <div class="col-sm-3">
-                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
+                            <a href="#addProductsModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
+                            <a href="#deleteProdcutModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
+                            <br></br>
+                            <div class="input-group rounded">
+                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                <span class="input-group-text border-0" id="search-addon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,22 +60,22 @@ $products = readFileToData("./data/products.json");
                     </thead>
                     <tbody>
                         <?php
-                        foreach($products as $product){
+                        foreach ($products as $product) {
                         ?>
-                        <tr>
-                            <td scope="row">
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </td>
-                            <td ><?php echo $product['id'] ?></td>
-                            <td><?php echo $product['name'] ?></td>
-                            <td><?php echo $product['price'] ?></td>
-                            <td ><img src="<?php echo $product['image'] ?>" style="width:50px" class="img-responsive"></td>
-                            <td><?php echo $product['remarks'] ?></td>
-                            <td><a href="#"><i class="fas fa-pen " style="color: #f86b0d;"></i></a>&nbsp;<a href="#"><i class="fas fa-trash"></i></a></td>
-                        </tr>
+                            <tr>
+                                <td scope="row">
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="selectAll">
+                                        <label for="selectAll"></label>
+                                    </span>
+                                </td>
+                                <td><?php echo $product['id'] ?></td>
+                                <td><?php echo $product['name'] ?></td>
+                                <td><?php echo $product['price'] ?></td>
+                                <td><img src="<?php echo $product['image'] ?>" style="width:50px" class="img-responsive"></td>
+                                <td><?php echo $product['remarks'] ?></td>
+                                <td><a href="#"><i class="fas fa-pen " style="color: #f86b0d;"></i></a>&nbsp;<a href="#"><i class="fas fa-trash"></i></a></td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
@@ -76,12 +84,12 @@ $products = readFileToData("./data/products.json");
                         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
+
     </body>
 
 </html>
