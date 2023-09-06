@@ -25,10 +25,10 @@ $products = readFileToData("./data/products.json");
                 <div class="table-title">
                     <div class="row mt-3">
                         <div class="col-sm-9">
-                            <h2>Danh sách Sản phẩm</h2>
+                            <h2>PRODUCTS LIST</h2>
                         </div>
                         <div class="col-sm-3">
-                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Employee</span></a>
+                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
                             <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
                         </div>
                     </div>

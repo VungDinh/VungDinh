@@ -12,14 +12,14 @@
 }
 
 .login-background {
-    background-image: url('../layouts/1031_5.jpg');
+    background-image: url('../layouts/mp3.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
 
 #neubar {
     background: #fae8d2;
-    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.4)
+    box-shadow: 4px 6px 12px rgba(15, 33, 202, 0.4)
 }
 
 .nav-item .active {
