@@ -1,5 +1,5 @@
 .register-background {
-    background-image: url('../images/pic1.jpg');
+    background-image: url('../layouts/pic1.jpg');
 }
 
 .register-background-h1 {
@@ -12,7 +12,7 @@
 }
 
 .login-background {
-    background-image: url('../images/1031_5.jpg');
+    background-image: url('../layouts/1031_5.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -52,7 +52,7 @@ a.navbar-brand {
 }
 
 .background-home{
-    background-image: url('../images/1031_5.jpg');
+    background-image: url('../layouts/1031_5.jpg');
     background-repeat: no-repeat;
     background-size: 100%;   
 }

@@ -1,7 +1,36 @@
 <?php
-$connect = mysqli_connect('localhost', 'root', '', 'demo');
-mysqli_set_charset($connect, "utf8");
+include_once "./handle/function.php";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $isInvalid = false;
+
+    // validate
+    if (empty($name)) {
+        $errName = "Name is required";
+        $isInvalid = true;
+    }
+
+    if (empty($email)) {
+        $errEmail = "Email is required";
+        $isInvalid = true;
+    }
+
+    if (empty($password)) {
+        $errPassword = "Password is required";
+        $isInvalid = true;
+    }
+
+    if ($isInvalid == false) {
+        createUser("./data/user.json", $name, $email, $password);
+        // quy lai login
+        header("Location: login.php");
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,51 +42,6 @@ mysqli_set_charset($connect, "utf8");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $form['name'] = $_POST['name'];
-    $form['email'] = $_POST['email'];
-    $form['phone'] = $_POST['telephone_number'];
-    $form['address'] = $_POST['address'];
-    $form['password'] = $_POST['password'];
-    $form['confirmPassword'] = $_POST['confirmPassword'];
-    //check validate
-    if ($form['password'] != $form['confirmPassword']) {
-        header("location:register.php");
-        setcookie("Error", "Đăng ký không thành công!", time() + 1, "/", "", 0);
-    }
-    if (!$form['name']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Name!", time() + 1, "/", "", 0);
-    }
-    if (!$form['email']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Email!", time() + 1, "/", "", 0);
-    }
-    if (!$form['phone']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Telephone number!", time() + 1, "/", "", 0);
-    }
-    if (!$form['address']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Address!", time() + 1, "/", "", 0);
-    }
-    if (!$form['password']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Password!", time() + 1, "/", "", 0);
-    }
-    if (!$form['confirmPassword']) {
-        header("location:register.php");
-        setcookie("Error", "bạn phải nhập trường Confirm Password!", time() + 1, "/", "", 0);
-    }
-    $pass = md5($form['password']);
-    $query = "INSERT INTO users (name, email, phone, address, password) 
-                    VALUES ('" . $form['name'] . "', '" . $form['email'] . "', '" . $form['phone'] . "', '" . $form['address'] . "', '" . $pass . "')";
-    mysqli_query($connect, $query);
-    header("location:login.php");
-    setcookie("Success", "Đăng ký thành công!", time() + 1, "/", "", 0);
-}
-?>
 
 <body class="register-background">
     <div class="container mt-5 mr-20">
@@ -71,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             <?php } ?>
             <div class="col-6">
-                <img src="images/register.png" width="100%">
+                <img src="layouts/register.png" width="100%">
             </div>
             <div class="col-6">
                 <h1 class="register-background-h1">Registration Form</h1>
