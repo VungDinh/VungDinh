@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     if ($isInvalid == false) {
         createUser("./data/user.json", $name, $email, $password);
-        // quy lai login
+        // quay lai login
         header("Location: login.php");
     }
 }
@@ -57,13 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container mt-5 mr-20">
         <div class="row">
             <!-- 'start nếu xảy ra lỗi thì hiện thông báo:' -->
-            <?php
-            if (isset($_COOKIE["error"])) {
-            ?>
-                <div class="alert alert-danger">
-                    <strong>'Có lỗi!'</strong> <?php echo $_COOKIE["error"]; ?>
-                </div>
-            <?php } ?>
             <div class="col-6">
                 <img src="layouts/register.png" width="100%">
             </div>

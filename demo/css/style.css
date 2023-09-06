@@ -3,11 +3,11 @@
 }
 
 .register-background-h1 {
-    color: #fff !important;
+    color: #d51b34 !important;
 }
 
 .form-label {
-    color: rgb(56, 9, 243) !important;
+    color: rgb(243, 9, 204) !important;
     font-weight: bold;
 }
 
@@ -55,4 +55,18 @@ a.navbar-brand {
     background-image: url('../layouts/1031_5.jpg');
     background-repeat: no-repeat;
     background-size: 100%;   
+}
+.products-background {
+    background-image: url('../layouts/bg1.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;   
+}
+
+.table-title {
+    padding-bottom: 15px;
+    background: #435d7d;
+    color: #fff;
+    padding: 16px 30px;
+    min-width: 100%;
+    border-radius: 3px 3px 0 0;
 }
