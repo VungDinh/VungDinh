@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $isInvalid = false;
 
-    // validate
+    // check validate của các trường Name,....
     if (empty($name)) {
         $errName = "Name is required";
         $isInvalid = true;
@@ -17,12 +17,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errEmail = "Email is required";
         $isInvalid = true;
     }
-
+    if (empty($telephonenumber)) {
+        $errTelephonenumber = "Telephone number is required";
+        $isInvalid = true;
+    }
+    if (empty($address)) {
+        $errAddress = "Address is required";
+        $isInvalid = true;
+    }
     if (empty($password)) {
         $errPassword = "Password is required";
         $isInvalid = true;
     }
-
+    if (empty($confirmPasssword)) {
+        $errConfirmPassword = "Confirm password is required";
+        $isInvalid = true;
+    }
     if ($isInvalid == false) {
         createUser("./data/user.json", $name, $email, $password);
         // quy lai login
