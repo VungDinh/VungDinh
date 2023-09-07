@@ -2,7 +2,10 @@
 
 include_once("./handle/function.php");
 $products = readFileToData("./data/products.json");
-
+if(isset($_GET['key_search'])){
+    // var_dump($_GET['key_search']);die;
+    $products =  searchProduct($_GET['key_search'], $products);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +35,14 @@ $products = readFileToData("./data/products.json");
                             <a href="#addProductsModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
                             <a href="#deleteProdcutModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
                             <br></br>
-                            <div class="input-group rounded">
-                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                <span class="input-group-text border-0" id="search-addon">
+                            <form action="" method="GET">
+                                <div class="input-group rounded">
+                                    <input type="search" class="form-control rounded" placeholder="Search" name="key_search" aria-label="Search" aria-describedby="search-addon" />
+                                    <button type="submit" class="input-group-text border-0" id="search-addon">
                                     <i class="fas fa-search"></i>
-                                </span>
-                            </div>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

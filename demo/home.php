@@ -13,7 +13,6 @@
 <body class="background-home">
 <?php
     require_once("layouts/navbar.php");
-
 ?>
     <div class="container">
         <p>This is my page</p>

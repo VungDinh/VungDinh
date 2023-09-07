@@ -37,3 +37,33 @@ function createUser($filePath,$name, $email, $password){
         array_push($users, $userRegister);
         writeFileToData($filePath, $users);
 }
+
+function searchProduct($name, $products){
+    $kqSearch = [];
+    if(!$name){
+        $kqSearch = $products;
+    }
+    foreach($products as $key => $product){
+        if($product['id'] == $name){
+            $kqSearch[$key] = $product;
+            continue;
+        }
+        //search chu thuong, hien thi ca chu hoa
+        if(strpos(strtoupper($product['name']), strtoupper($name)) !== false){
+            $kqSearch[$key] = $product;
+            continue;
+        //if(strpos($product['name'], $name) !== false){
+          //  $kqSearch[$key] = $product;
+          //  continue;
+        }
+        if($product['price'] == $name){
+            $kqSearch[$key] = $product;
+            continue;
+        }
+        if(strpos(strtoupper($product['remarks']), strtoupper($name)) !== false){
+            $kqSearch[$key] = $product;
+            continue;
+        }
+    }
+    return $kqSearch;
+}
