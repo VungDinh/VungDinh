@@ -1,3 +1,4 @@
+
 .register-background {
     background-image: url('../layouts/pic1.jpg');
 }
@@ -69,4 +70,14 @@ a.navbar-brand {
     padding: 16px 30px;
     min-width: 100%;
     border-radius: 3px 3px 0 0;
+}
+.edit-background {
+    background-image: url('../layouts/mp4.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;   
+}
+.create-background {
+    background-image: url('../layouts/mp6.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;   
 }

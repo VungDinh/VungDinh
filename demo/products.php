@@ -6,6 +6,18 @@ if(isset($_GET['key_search'])){
     // var_dump($_GET['key_search']);die;
     $products =  searchProduct($_GET['key_search'], $products);
 }
+if(isset($_GET['id'])){
+   $id = $_GET['id'];
+   foreach($products as $key => $product){
+    if($product['id'] == $id ){
+        $keyCheck = $key;
+    }
+}
+    unset($products[$keyCheck]);
+    $jsonData = json_encode($products);
+    file_put_contents("./data/products.json",$jsonData);
+    header("Location: http://localhost/VungDinh/demo/products.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +44,7 @@ if(isset($_GET['key_search'])){
                             <h2>PRODUCTS LIST</h2>
                         </div>
                         <div class="col-sm-3">
-                            <a href="#addProductsModal" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
+                            <a href="create.php" class="btn btn-success" data-toggle="modal"><i class="material-icons"></i> <span>Add New Products</span></a>
                             <a href="#deleteProdcutModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons"></i> <span>Delete</span></a>
                             <br></br>
                             <form action="" method="GET">
@@ -79,7 +91,9 @@ if(isset($_GET['key_search'])){
                                 <td><?php echo $product['price'] ?></td>
                                 <td><img src="<?php echo $product['image'] ?>" style="width:50px" class="img-responsive"></td>
                                 <td><?php echo $product['remarks'] ?></td>
-                                <td><a href="#"><i class="fas fa-pen " style="color: #f86b0d;"></i></a>&nbsp;<a href="#"><i class="fas fa-trash"></i></a></td>
+                                <td><a href="http://localhost/VungDinh/demo/edit.php?id=<?php echo $product['id'] ?>"><i class="fas fa-pen " style="color: #f86b0d;"></i></a>&nbsp;
+                                <a href="products.php?id=<?php echo $product['id'] ?>">
+                                <i class="fas fa-trash"></i></a></td>
                             </tr>
                         <?php } ?>
                     </tbody>
