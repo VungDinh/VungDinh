@@ -67,3 +67,14 @@ function searchProduct($name, $products){
     }
     return $kqSearch;
 }
+
+function sortByKey($products, $key, $desc){
+    usort($products, function($a, $b) use($key, $desc){
+        if($desc){
+            return $a[$key] - $b[$key];
+        }else{
+            return $b[$key] - $a[$key];
+        }
+    });
+    return $products;
+}
