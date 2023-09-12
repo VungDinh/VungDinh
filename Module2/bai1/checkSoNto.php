@@ -9,33 +9,32 @@
 
 <body>
     <?php
-    // Hàm kiểm tra số nguyên tố
-    function isPrime($number)
-    {
-        if ($number < 2) {
-            return false;
-        }
+    // Bước 1: Nhập số lượng số nguyên tố cần hiển thị
+    $numbers = (int) readline("Nhập số lượng số nguyên tố cần hiển thị: ");
 
-        for ($i = 2; $i <= sqrt($number); $i++) {
-            if ($number % $i == 0) {
-                return false;
+    // Bước 2: Khởi tạo biến count và N
+    $count = 0;
+    $N = 2;
+
+    // Bước 3: Hiển thị số nguyên tố
+    while ($count < $numbers) {
+        $isPrime = true;
+
+        // Kiểm tra xem N có phải là số nguyên tố không
+        for ($i = 2; $i <= sqrt($N); $i++) {
+            if ($N % $i == 0) {
+                $isPrime = false;
+                break;
             }
         }
 
-        return true;
-    }
-
-    // Nhập số lượng số nguyên tố cần hiển thị
-    $numbers = (int) readline("Nhập số lượng số nguyên tố cần hiển thị: ");
-
-    $count = 0; // Đếm số lượng số nguyên tố đã hiển thị
-    $N = 2; // Giá trị ban đầu để kiểm tra
-
-    while ($count < $numbers) {
-        if (isPrime($N)) {
+        // Nếu N là số nguyên tố, in ra giá trị của N và tăng giá trị của count lên 1
+        if ($isPrime) {
             echo $N . " ";
             $count++;
         }
+
+        // Tăng giá trị của N lên 1 để kiểm tra số tiếp theo
         $N++;
     }
     ?>
