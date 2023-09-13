@@ -1,17 +1,20 @@
 
 <?php
 
-function readFileToData($filePath){
+function readFileToData($filePath)
+{
     $dataJson = file_get_contents($filePath);
     return json_decode($dataJson, true);
 }
 
-function writeFileToData($filePath, $data){
+function writeFileToData($filePath, $data)
+{
     $dataJson = json_encode($data);
     file_put_contents($filePath, $dataJson);
 }
 
-function checkUser($users, $email, $password) {
+function checkUser($users, $email, $password)
+{
     foreach ($users as $index => $user) {
         if (
             $user['email'] == $email  &&
@@ -22,10 +25,11 @@ function checkUser($users, $email, $password) {
     }
 
     return false;
-
 }
 
-function createUser($filePath,$name, $email, $password){
+function createUser($filePath, $name, $email, $password)
+{
+    try {
         // chuyen doi du lieu tu json -> array
         $users = readFileToData($filePath);
 
@@ -36,31 +40,36 @@ function createUser($filePath,$name, $email, $password){
         ];
         array_push($users, $userRegister);
         writeFileToData($filePath, $users);
+    } catch (Exception $ex) {
+        return $ex->getMessage();
+    }
 }
 
-function searchProduct($name, $products){
+
+function searchProduct($name, $products)
+{
     $kqSearch = [];
-    if(!$name){
+    if (!$name) {
         $kqSearch = $products;
     }
-    foreach($products as $key => $product){
-        if($product['id'] == $name){
+    foreach ($products as $key => $product) {
+        if ($product['id'] == $name) {
             $kqSearch[$key] = $product;
             continue;
         }
         //search chu thuong, hien thi ca chu hoa
-        if(strpos(strtoupper($product['name']), strtoupper($name)) !== false){
+        if (strpos(strtoupper($product['name']), strtoupper($name)) !== false) {
             $kqSearch[$key] = $product;
             continue;
-        //if(strpos($product['name'], $name) !== false){
-          //  $kqSearch[$key] = $product;
-          //  continue;
+            //if(strpos($product['name'], $name) !== false){
+            //  $kqSearch[$key] = $product;
+            //  continue;
         }
-        if($product['price'] == $name){
+        if ($product['price'] == $name) {
             $kqSearch[$key] = $product;
             continue;
         }
-        if(strpos(strtoupper($product['remarks']), strtoupper($name)) !== false){
+        if (strpos(strtoupper($product['remarks']), strtoupper($name)) !== false) {
             $kqSearch[$key] = $product;
             continue;
         }
@@ -68,13 +77,18 @@ function searchProduct($name, $products){
     return $kqSearch;
 }
 
-function sortByKey($products, $key, $desc){
-    usort($products, function($a, $b) use($key, $desc){
-        if($desc){
-            return $a[$key] - $b[$key];
-        }else{
-            return $b[$key] - $a[$key];
-        }
-    });
-    return $products;
+function sortByKey($products, $key, $desc)
+{
+    try {
+        usort($products, function ($a, $b) use ($key, $desc) {
+            if ($desc) {
+                return $a[$key] - $b[$key];
+            } else {
+                return $b[$key] - $a[$key];
+            }
+        });
+        return $products;
+    } catch (Exception $ex) {
+        return $ex->getMessage();
+    }
 }
