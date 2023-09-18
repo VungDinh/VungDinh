@@ -27,16 +27,34 @@ function checkUser($users, $email, $password)
     return false;
 }
 
-function createUser($filePath, $name, $email, $password)
+//function createUser($filePath, $name, $email, $password)
+//{
+   // try {
+        // chuyen doi du lieu tu json -> array
+      //  $users = readFileToData($filePath);
+
+      //  $userRegister = [
+         //   "name" => $name,
+          //  "email" => $email,
+          //  "password" => $password
+        //];
+        //array_push($users, $userRegister);
+        //writeFileToData($filePath, $users);
+    //} catch (Exception $ex) {
+       // return $ex->getMessage();
+    //}
+//}
+function createUser($filePath, $name, $email, $facebook,$password)
 {
     try {
         // chuyen doi du lieu tu json -> array
         $users = readFileToData($filePath);
 
         $userRegister = [
-            "name" => $name,
-            "email" => $email,
-            "password" => $password
+            "Name" => $name,
+            "Email" => $email,
+            "Facebook" => $facebook,
+            "Password" => $password,
         ];
         array_push($users, $userRegister);
         writeFileToData($filePath, $users);
@@ -44,7 +62,6 @@ function createUser($filePath, $name, $email, $password)
         return $ex->getMessage();
     }
 }
-
 
 function searchProduct($name, $products)
 {
