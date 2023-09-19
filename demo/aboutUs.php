@@ -11,7 +11,7 @@
     <link href="css/about.css" rel="stylesheet">
 </head>
 
-<body class="background-home">
+<body class="background-about">
     <?php
     require_once("layouts/navbar.php");
     ?>
@@ -26,36 +26,36 @@
                         <div class="pr-md-3">
                             <div class="text-center text-sm-right mb-2-9">
                                 <div class="mb-4">
-                                    <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-8x">
+                                    <img src="layouts/purple.jpg" alt="..." class="rounded-circle img-about image-8x">
                                 </div>
-                                <h4 class="sub-info">Residential Cleaning</h4>
-                                <p class="display-30 mb-0">Roin gravida nibh vel velit auctor aliquetenean sollicitudin, lorem qui bibendum auctor.</p>
+                                <h4 class="sub-info">Skin Cleaning</h4>
+                                <p class="display-30 mb-0">Don't have time for intensive skin care? Good skin care and healthy lifestyle choices can help delay natural aging and prevent various skin problems</p>
                             </div>
                             <div class="text-center text-sm-right">
                                 <div class="mb-4"> 
-                                <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
-                                <h4 class="sub-info">Commercial Cleaning</h4>
-                                <p class="display-30 mb-0">Gravida roin nibh vel velit auctor aliquetenean sollicitudin, lorem qui bibendum auctor.</p>
+                                <img src="layouts/blue.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
+                                <h4 class="sub-info">Protect From the Sun</h4>
+                                <p class="display-30 mb-0"> A lifetime of sun exposure can cause wrinkles, age spots and other skin problems — as well as increase the risk of skin cancer.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-lg-block">
                         <div class="why-choose-center-image"> 
-                            <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-350"></div>
+                            <img src="layouts/white3.jpg" alt="..." class="rounded-circle img-about image-350"></div>
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <div class="pl-md-3">
                             <div class="text-center text-sm-left mb-2-9">
                                 <div class="mb-4"> 
                                 <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
-                                <h4 class="sub-info">Washing services</h4>
-                                <p class="display-30 mb-0">Nibh roin gravida vel velit auctor aliquetenean sollicitudin, lorem qui bibendum auctor.</p>
+                                <h4 class="sub-info">Don't smoke</h4>
+                                <p class="display-30 mb-0">Smoking makes your skin look older and contributes to wrinkles. Smoking narrows the tiny blood vessels in the outermost layers of skin, which decreases blood flow and makes skin paler.</p>
                             </div>
                             <div class="text-center text-sm-left">
                                 <div class="mb-4"> 
-                                <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
-                                <h4 class="sub-info">Carpet cleaning</h4>
-                                <p class="display-30 mb-0">Vel proin gravida nibh velit auctor aliquetenean sollicitudin, lorem qui bibendum auctor.</p>
+                                <img src="layouts/green.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
+                                <h4 class="sub-info">Treat your skin gently</h4>
+                                <p class="display-30 mb-0">Daily cleansing and shaving can take a toll on your skin. To keep it gentle.</p>
                             </div>
                         </div>
                     </div>
