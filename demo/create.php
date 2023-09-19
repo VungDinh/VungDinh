@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class="create-background">
+<?php
+    require_once("layouts/navbar.php");
+    ?>
     <div class="container">
         <style>
             .form-row {
@@ -73,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         </style>
         <form action="" method="post">
+            
             <div class="form-row">
                 <label for="product_name">Product Name </label>
                 <input type="text" name="product_name" id="product_name" value="">
@@ -89,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="remarks">Remarks </label>
                 <input type="text" name="remarks" id="remarks" value="">
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>

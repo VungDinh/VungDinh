@@ -29,7 +29,7 @@
                                     <img src="layouts/purple.jpg" alt="..." class="rounded-circle img-about image-8x">
                                 </div>
                                 <h4 class="sub-info">Skin Cleaning</h4>
-                                <p class="display-30 mb-0">Don't have time for intensive skin care? Good skin care and healthy lifestyle choices can help delay natural aging and prevent various skin problems</p>
+                                <p class="display-30 mb-0">Good skin care and healthy lifestyle choices can help delay natural aging and prevent various skin problems</p>
                             </div>
                             <div class="text-center text-sm-right">
                                 <div class="mb-4"> 
@@ -49,7 +49,7 @@
                                 <div class="mb-4"> 
                                 <img src="layouts/brand1.jpg" alt="..." class="rounded-circle img-about image-8x"></div>
                                 <h4 class="sub-info">Don't smoke</h4>
-                                <p class="display-30 mb-0">Smoking makes your skin look older and contributes to wrinkles. Smoking narrows the tiny blood vessels in the outermost layers of skin, which decreases blood flow and makes skin paler.</p>
+                                <p class="display-30 mb-0">Smoking makes your skin look older and contributes to wrinkles. Smoking narrows the tiny blood vessels in the outermost layers of skin.</p>
                             </div>
                             <div class="text-center text-sm-left">
                                 <div class="mb-4"> 
