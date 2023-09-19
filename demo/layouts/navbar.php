@@ -24,9 +24,8 @@
                             Vung Dinh
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Blog</a></li>
-                            <li><a class="dropdown-item" href="#">About me</a></li>
-                            <li><a class="dropdown-item" href="#">Contact </a></li>
+                            <li><a class="dropdown-item" href="https://www.facebook.com/profile.php?id=100003985815453&mibextid=avESrC">Facebook</a></li>
+                            <li><a class="dropdown-item" href="aboutUs.php">About us</a></li>
                         </ul>
                     </li>
                 </ul>

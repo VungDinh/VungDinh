@@ -36,32 +36,30 @@
                     }
                 }
             }
-                if (empty($_POST["email"])) {
-                    $emailErr = "Email is required";
-                } else {
-                    $email = test_input($_POST["email"]);
-                    // check if e-mail address is well-formed
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $emailErr = "Invalid email format";
-                    }
+            if (empty($_POST["email"])) {
+                $emailErr = "Email is required";
+            } else {
+                $email = test_input($_POST["email"]);
+                // check if e-mail address is well-formed
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $emailErr = "Invalid email format";
                 }
+            }
 
-                if (empty($_POST["facebook"])) {
-                    $facebookErr = "Invalid URL";;
-                } else {
-                    $facebook = test_input($_POST["facebook"]);
-                    // check if URL address syntax is valid
-                    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $facebook)) {
-                        
-                    }
+            if (empty($_POST["facebook"])) {
+                $facebookErr = "Invalid URL";;
+            } else {
+                $facebook = test_input($_POST["facebook"]);
+                // check if URL address syntax is valid
+                if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $facebook)) {
                 }
+            }
 
-                if (empty($_POST["password"])) {
-                    $passwordErr = "Password is required";
-                } else {
-                    $password = test_input($_POST["password"]);
-                    if(!preg_match("/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/", $password)){
-            
+            if (empty($_POST["password"])) {
+                $passwordErr = "Password is required";
+            } else {
+                $password = test_input($_POST["password"]);
+                if (!preg_match("/^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/", $password)) {
                 }
             }
 
@@ -73,25 +71,57 @@
                 return $data;
             }
             ?>
-            <h2>REGISTER FORM</h2>
-            <p><span class="error">* Required field</span></p>
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                Name: <input type="text" name="name">
-                <span class="error">* <?php echo $nameErr; ?></span>
-                <br><br>
-                E-mail: <input type="text" name="email">
-                <span class="error">* <?php echo $emailErr; ?></span>
-                <br><br>
-                Facebook: <input type="text" name="facebook">
-                <span class="error">*<?php echo $facebookErr; ?></span>
-                <br><br>
-                Password: <input type="text" name="password">
-                <span class="error">*<?php echo $passwordErr; ?></span>
-                <br><br>
-                <input type="submit" name="submit" value="Submit">
-            </form>
-
-            
+            <div class="col-6">
+                <h2 class="text-primary">REGISTER FORM</h2>
+                <p><span class="error">* Required field</span></p>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-2 text-light">Name</div>
+                                <div class="col-10">
+                                    <input type="text" name="name">
+                                    <span class="error">* <?php echo $nameErr; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-2 text-light">E-mail</div>
+                                <div class="col-10">
+                                    <input type="text" name="email">
+                                    <span class="error">* <?php echo $emailErr; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-2 text-light">Facebook</div>
+                                <div class="col-10">
+                                    <input type="text" name="facebook">
+                                    <span class="error">*<?php echo $facebookErr; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="row">
+                                <div class="col-2 text-light">Password</div>
+                                <div class="col-10">
+                                    <input type="text" name="password">
+                                    <span class="error">*<?php echo $passwordErr; ?></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-10 mt-2">
+                            <div class="row mx-auto" style="text-align: center;">
+                                <div class="col-12"><input type="submit" name="submit" class="btn btn-primary" value="Submit"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>        
 
 </body>
 
