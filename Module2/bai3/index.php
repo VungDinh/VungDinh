@@ -35,7 +35,7 @@ $result = getCustomer();
 
 <body>
     <a href="./index.php">View customers</a>
-    <a href="">View orders</a>
+    <a href="./view-order.php">View orders</a>
     <a href="./view-product.php">View products</a>
 
     <table>
