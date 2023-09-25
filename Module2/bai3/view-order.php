@@ -1,7 +1,10 @@
 <?php
-
 include_once "./database.php";
-$result = getCustomer();
+
+$cID = $_GET['cID'];
+
+// doc du lieu database
+$result = getOrderByCustomerId($cID)
 
 ?>
 
@@ -34,29 +37,26 @@ $result = getCustomer();
 </head>
 
 <body>
-    <a href="./index.php">View customers</a>
-    <a href="">View orders</a>
-    <a href="./view-product.php">View products</a>
-
+    <h3>Customer had <?php echo count($result) ?> orders</h3>
+    <a href="./index.php">Back</a>
     <table>
         <caption>
-            <h2>Customer list</h2>
-            <p>Total: <?php echo count($result) ?> customer</p>
+            <h2>List order</h2>
         </caption>
         <tr id="table-header">
             <td>STT</td>
-            <td>Full Name</td>
-            <td>Phone</td>
-            <td>City</td>
+            <td>Order Number</td>
+            <td>Order Date</td>
+            <td>Status</td>
             <td></td>
         </tr>
-        <?php foreach ($result as $key => $customer) : ?>
+        <?php foreach ($result as $key => $order) :  ?>
             <tr>
                 <td><?php echo $key + 1 ?></td>
-                <td><?php echo $customer['customerName'] ?></td>
-                <td><?php echo $customer['phone'] ?></td>
-                <td><?php echo $customer['city'] ?></td>
-                <td><a href="./view-order.php?cID=<?php echo $customer['customerNumber'] ?>">View orders</a></td>
+                <td><?php echo $order['orderNumber'] ?></td>
+                <td><?php echo $order['orderDate'] ?></td>
+                <td><?php echo $order['status'] ?></td>
+                <td><a href="">View product</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
