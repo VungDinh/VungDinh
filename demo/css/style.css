@@ -1,12 +1,13 @@
-
 .register-background {
     background-image: url('../layouts/pic1.jpg');
 }
+
 .register1-background {
     background-image: url('../layouts/bk1.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
+
 .register-background-h1 {
     color: #d51b34 !important;
 }
@@ -56,15 +57,16 @@ a.navbar-brand {
     color: #454545
 }
 
-.background-home{
+.background-home {
     background-image: url('../layouts/bk.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
+
 .products-background {
     background-image: url('../layouts/bg1.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
 
 .table-title {
@@ -75,15 +77,17 @@ a.navbar-brand {
     min-width: 100%;
     border-radius: 3px 3px 0 0;
 }
+
 .edit-background {
     background-image: url('../layouts/mp4.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
+
 .create-background {
     background-image: url('../layouts/bk2.jpeg');
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }
 
 table.dataTable thead .sorting:after,
@@ -96,10 +100,11 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
-  bottom: .5em;
+    bottom: .5em;
 }
-.background-about{
+
+.background-about {
     background-image: url('../layouts/color.jpeg');
     background-repeat: no-repeat;
-    background-size: 100%;   
+    background-size: 100%;
 }

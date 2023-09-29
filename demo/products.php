@@ -2,20 +2,20 @@
 
 include_once("./handle/function.php");
 $products = readFileToData("./data/products.json");
-if(isset($_GET['key_search'])){
+if (isset($_GET['key_search'])) {
     // var_dump($_GET['key_search']);die;
     $products =  searchProduct($_GET['key_search'], $products);
 }
-if(isset($_GET['id'])){
-   $id = $_GET['id'];
-   foreach($products as $key => $product){
-    if($product['id'] == $id ){
-        $keyCheck = $key;
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    foreach ($products as $key => $product) {
+        if ($product['id'] == $id) {
+            $keyCheck = $key;
+        }
     }
-}
     unset($products[$keyCheck]);
     $jsonData = json_encode($products);
-    file_put_contents("./data/products.json",$jsonData);
+    file_put_contents("./data/products.json", $jsonData);
     header("Location: http://localhost/VungDinh/demo/products.php");
 }
 ?>
@@ -60,7 +60,7 @@ if(isset($_GET['id'])){
                                 <div class="input-group rounded">
                                     <input type="search" class="form-control rounded" placeholder="Search" name="key_search" aria-label="Search" aria-describedby="search-addon" />
                                     <button type="submit" class="input-group-text border-0" id="search-addon">
-                                    <i class="fas fa-search"></i>
+                                        <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </form>
@@ -101,8 +101,9 @@ if(isset($_GET['id'])){
                                 <td><img src="<?php echo $product['image'] ?>" style="width:50px" class="img-responsive"></td>
                                 <td><?php echo $product['remarks'] ?></td>
                                 <td><a href="http://localhost/VungDinh/demo/edit.php?id=<?php echo $product['id'] ?>"><i class="fas fa-pen " style="color: #f86b0d;"></i></a>&nbsp;
-                                <a href="products.php?id=<?php echo $product['id'] ?>">
-                                <i class="fas fa-trash"></i></a></td>
+                                    <a href="products.php?id=<?php echo $product['id'] ?>">
+                                        <i class="fas fa-trash"></i></a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -120,4 +121,5 @@ if(isset($_GET['id'])){
 
     </body>
     <script src="js/script.js"></script>
+
 </html>
