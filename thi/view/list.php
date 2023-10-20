@@ -20,11 +20,14 @@
         background-color: antiquewhite;
     }
 </style>
-<table>
-    <caption>
-        <h2>Group list</h2>
-        <a href="index.php?page=groups&action=add">+ Add</a>
-    </caption>
+<caption>
+    <h2>Danh sách thành phố</h2>
+    <a href="index.php?page=groups&action=add">Thêm thành phố</a>
+</caption>
+<div class="row">
+    
+</div>
+<table class="table table-striped table-hover">
     <tr id="tbl-header">
         <td>STT</td>
         <td>Name</td>
@@ -45,9 +48,18 @@
             <td>
                 <a href="index.php?page=groups&action=edit&id=<?php echo $group['id'] ?>">Edit</a>|
                 <a href="index.php?page=groups&action=detail&id=<?php echo $group['id'] ?>">Detail</a>|
-                <a href="index.php?page=groups&action=delete&id=<?php echo $group['id'] ?>">Delete</a>
+                <!-- <a href="index.php?page=groups&action=delete&id=<?php echo $group['id'] ?>">Delete</a> -->
+                <a href="javascript:void(0);" onclick="xoa(<?php echo $group['id'] ?>)">Delete</a>
             </td>
         </tr>
     <?php endforeach; ?>
     <?php endif ?>
 </table>
+<script>
+    function xoa(id){
+        let tmp = confirm("Bạn có chắc chắn muốn xóa không");
+        if(tmp){
+            location.href = "index.php?page=groups&action=delete&id="+id;
+        }
+    }
+</script>

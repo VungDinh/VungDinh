@@ -5,21 +5,27 @@
 <form action="index.php?page=groups&action=update" method="post">
 <input type="hidden" name="id" value="<?php echo $result['id']?>">
 <table>
-    <caption><h3>Day la trang Edit</h3></caption>
+    <caption><h3>Chỉnh sửa thành phố</h3></caption>
     <tr>
-        <td>Name:</td>
+        <td>Tên:</td>
         <td>
             <input type="text" name="name" value="<?php echo $result['name']?>">
         </td>
     </tr>
     <tr>
-        <td>Country:</td>
+        <td>Quốc gia:</td>
         <td>
             <input type="text" name="country" value="<?php echo $result['country']?>">
         </td>
     </tr>
     <tr>
-        <td>Square:</td>
+        <td>Diện tích:</td>
+        <td>
+            <input type="text" name="square" value="<?php echo $result['square']?>">
+        </td>
+    </tr>
+    <tr>
+        <td>Dân số:</td>
         <td>
             <input type="text" name="square" value="<?php echo $result['square']?>">
         </td>
@@ -31,14 +37,19 @@
         </td>
     </tr>
     <tr>
-        <td>Decription:</td>
+        <td>Giới thiệu:</td>
         <td>
             <input type="text" name="decription" value="<?php echo $result['decription']?>">
         </td>
     </tr>
     <tr>
             <td></td>
-            <td><button type="submit">Submit</button></td>
+            <td class="button-container">
+                <button type="submit">Cập nhật</button>
+            </td>
+            <td class="button-container">
+                <button type="submit">Thoát</button>
+            </td>
         </tr>
 </table>
 </form>

@@ -4,40 +4,50 @@
 
 <form action="index.php?page=groups&action=store" method="post">
     <table>
-        <caption><h3>Add new group</h3></caption>
+        <caption><h3>Thêm thành phố</h3></caption>
         <tr>
-            <td>Name:</td>
+            <td>Tên:</td>
             <td>
                 <input type="text" name="name">
             </td>
         </tr>
         <tr>
-            <td>country:</td>
+            <td>Quốc gia:</td>
             <td>
                 <input type="text" name="country">
             </td>
         </tr>
         <tr>
-            <td>square:</td>
+            <td>Diện tích:</td>
             <td>
                 <input type="text" name="square">
             </td>
         </tr>
         <tr>
-            <td>gdp:</td>
+            <td>Dân số:</td>
+            <td>
+                <input type="text" name="square">
+            </td>
+        </tr>
+        <tr>
+            <td>GDP:</td>
             <td>
                 <input type="text" name="gdp">
             </td>
         </tr>
         <tr>
-            <td>decription:</td>
+            <td>Giới thiệu:</td>
             <td>
                 <input type="text" name="decription">
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><button type="submit">Submit</button></td>
+            <td><button type="submit">Nhập thành phố</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Thoát</button></td>
         </tr>
     </table>
 </form>
