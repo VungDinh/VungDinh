@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('test');
 // });
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/list-book', [HomeController::class, 'listBook'])->name('list-book');
+Route::get('list-book', [HomeController::class, 'listBook'])->name('list-book');
+Route::get('delete-book/{id}', [HomeController::class, 'deleteBook'])->name('delete-book');
 Route::post('book-table', [HomeController::class, 'bookTable'])->name('book-table');

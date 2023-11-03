@@ -35,7 +35,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -78,25 +78,25 @@
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
-  let selectHeader = select('#header')
-  let selectTopbar = select('#topbar')
-  if (selectHeader) {
-    const headerScrolled = () => {
-      if (window.scrollY > 100) {
-        selectHeader.classList.add('header-scrolled')
-        if (selectTopbar) {
-          selectTopbar.classList.add('topbar-scrolled')
-        }
-      } else {
-        selectHeader.classList.remove('header-scrolled')
-        if (selectTopbar) {
-          selectTopbar.classList.remove('topbar-scrolled')
-        }
-      }
-    }
-    window.addEventListener('load', headerScrolled)
-    onscroll(document, headerScrolled)
-  }
+//   let selectHeader = select('#header')
+//   let selectTopbar = select('#topbar')
+//   if (selectHeader) {
+//     const headerScrolled = () => {
+//       if (window.scrollY > 100) {
+//         selectHeader.classList.add('header-scrolled')
+//         if (selectTopbar) {
+//           selectTopbar.classList.add('topbar-scrolled')
+//         }
+//       } else {
+//         selectHeader.classList.remove('header-scrolled')
+//         if (selectTopbar) {
+//           selectTopbar.classList.remove('topbar-scrolled')
+//         }
+//       }
+//     }
+//     window.addEventListener('load', headerScrolled)
+//     onscroll(document, headerScrolled)
+//   }
 
   /**
    * Back to top button
@@ -154,13 +154,13 @@
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
+//   window.addEventListener('load', () => {
+//     if (window.location.hash) {
+//       if (select(window.location.hash)) {
+//         scrollto(window.location.hash)
+//       }
+//     }
+//   });
 
   /**
    * Preloader
@@ -204,7 +204,7 @@
   });
 
   /**
-   * Initiate glightbox 
+   * Initiate glightbox
    */
   const glightbox = GLightbox({
     selector: '.glightbox'
@@ -258,7 +258,7 @@
   });
 
   /**
-   * Initiate gallery lightbox 
+   * Initiate gallery lightbox
    */
   const galleryLightbox = GLightbox({
     selector: '.gallery-lightbox'

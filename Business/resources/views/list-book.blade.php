@@ -10,6 +10,11 @@
                 </div>
             </div>
         </div>
+        @if(@$message)
+        <div class="alert alert-success" role="alert">
+            {{ $message }}
+        </div>
+        @endif
         <div class="col-md-12">
             <table class="table">
               <thead>
@@ -22,6 +27,7 @@
                   <th scope="col">Time</th>
                   <th scope="col">People</th>
                   <th scope="col">Message</th>
+                  <th scope="col">Option</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,10 +41,14 @@
                   <td>{{ $table->time }}</td>
                   <td>{{ $table->people }}</td>
                   <td>{{ $table->message }}</td>
+                  <td><a href="{{ route('delete-book', $table->id) }}" onClick="return confirm('Bạn có muốn xóa dữ liệu này không');">Delete</a></td>
                 </tr>
                 @endforeach
               </tbody>
             </table>
+        </div>
+        <div class="col-md-12">
+            {{ $listBook->links('pagination.custom') }}
         </div>
     </div>
 </div>
