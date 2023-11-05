@@ -17,34 +17,34 @@
         @endif
         <div class="col-md-12">
             <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Time</th>
-                  <th scope="col">People</th>
-                  <th scope="col">Message</th>
-                  <th scope="col">Option</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($listBook as $table)
-                <tr>
-                  <th scope="row">{{ $table->id }}</th>
-                  <td>{{ $table->name }}</td>
-                  <td>{{ $table->email }}</td>
-                  <td>{{ $table->phone }}</td>
-                  <td>{{ $table->date }}</td>
-                  <td>{{ $table->time }}</td>
-                  <td>{{ $table->people }}</td>
-                  <td>{{ $table->message }}</td>
-                  <td><a href="{{ route('delete-book', $table->id) }}" onClick="return confirm('Bạn có muốn xóa dữ liệu này không');">Delete</a></td>
-                </tr>
-                @endforeach
-              </tbody>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">People</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($listBook as $table)
+                    <tr>
+                        <th scope="row">{{ $table->id }}</th>
+                        <td>{{ $table->name }}</td>
+                        <td>{{ $table->email }}</td>
+                        <td>{{ $table->phone }}</td>
+                        <td>{{ $table->date }}</td>
+                        <td>{{ $table->time }}</td>
+                        <td>{{ $table->people }}</td>
+                        <td>{{ $table->message }}</td>
+                        <td><a href="{{ route('delete-book', $table->id) }}" onClick="return confirm('Bạn có muốn xóa dữ liệu này không');">Delete</a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
         <div class="col-md-12">
