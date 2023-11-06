@@ -34,6 +34,7 @@
 
 
     <!-- Template Main CSS File -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
@@ -94,7 +95,6 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

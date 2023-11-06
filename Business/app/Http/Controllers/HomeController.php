@@ -14,7 +14,8 @@ class HomeController extends Controller
 
     public function listBook(){
         $listBook = BookTable::paginate(5);
-        return view('list-book', compact('listBook'));
+        $listOption = ['complete', 'waiting', 'cancel'];
+        return view('list-book', compact('listBook', 'listOption'));
     }
 
     public function bookTable(Request $request){
@@ -30,5 +31,12 @@ class HomeController extends Controller
     public function deleteBook($id){
         BookTable::find($id)->delete();
         return redirect('/list-book')->with('message', 'Xóa thành công');
+    }
+
+    public function updateStatus(Request $request, $status){
+        $booktable = BookTable::find($request['id']);
+        $booktable->status = $status;
+        $booktable->save();
+        return redirect('/list-book')->with('message', 'Cập nhật thành công');
     }
 }
