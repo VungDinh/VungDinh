@@ -13,6 +13,10 @@ class LoginController extends Controller
         if($request->method() == 'GET'){
             return view('admin.login');
         }else{
+            $this->validate($request, [
+                'email' => 'required|email|max:255',
+                'password' => 'required',
+            ]);
             $input = $request->except('_token');
             if(Auth::attempt($input)){
                 return redirect()->route('list-book');
