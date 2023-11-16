@@ -27,4 +27,7 @@
           <a href="/#book-a-table" class="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
 
       </div>
+      <div class="col-12 col-md-2">
+        <h3>{{ $weather->list[0]->name .' '. ($weather->list[0]->main->temp - 273)}} °C</h3>
+      </div>
   </header><!-- End Header -->

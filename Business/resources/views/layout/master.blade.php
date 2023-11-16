@@ -34,7 +34,7 @@
 
 
     <!-- Template Main CSS File -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
@@ -53,15 +53,16 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
 
             <div class="contact-info d-flex align-items-center">
-                <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
-                <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>
+                <i class="bi bi-phone d-flex align-items-center"><span>+84 9713 81810</span></i>
+                <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 8AM - 22PM</span></i>
             </div>
 
             <div class="languages d-none d-md-flex align-items-center">
                 <ul>
                     <li>En</li>
-                    <li><a href="#">De</a></li>
+                    <li><a href="#">Vn</a></li>
                 </ul>
+
             </div>
         </div>
     </div>

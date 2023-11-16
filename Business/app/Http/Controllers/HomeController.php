@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\BookTable;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $weather = $this->getWeather();
+        return view('welcome', compact('weather'));
     }
 
     public function listBook(){
@@ -38,5 +40,12 @@ class HomeController extends Controller
         $booktable->status = $status;
         $booktable->save();
         return redirect('/list-book')->with('message', 'Cập nhật thành công');
+    }
+
+
+    public function getWeather($city= "Hanoi"){
+        $urlApi = "http://api.openweathermap.org/data/2.5/find?q=".$city."&appid=f352463719d3def80f3056cc332ce129";
+        $response = Http::get($urlApi);
+        return json_decode($response);
     }
 }
