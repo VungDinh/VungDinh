@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\QuanLyChiTieuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,6 @@ Route::get('/update', function () {
     return view('update');
 })->name('update');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'showFormLogin'])->name('show-form-login');
+
+Route::resource('qlct', QuanLyChiTieuController::class);

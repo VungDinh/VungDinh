@@ -54,6 +54,7 @@ background: #eee;
 
                         <!-- Submit button -->
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <a href="#!">Forgot password?</a>
 
                         <div class="divider d-flex align-items-center my-4">
                             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
